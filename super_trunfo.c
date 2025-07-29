@@ -15,7 +15,7 @@ int main(){
     printf("\n--- Dados da Carta 1 ---\n");
 
     printf("Estado: ");
-    scanf("%s", estado);
+    scanf(" %29[^\n]", estado);
 
     printf("Codigo: ");
     scanf("%s", codigo);
@@ -45,7 +45,7 @@ int main(){
     printf("\n--- Dados da Carta 2 ---\n");
 
     printf("Estado: ");
-    scanf("%s", estado2);
+    scanf(" %29[^\n]", estado2);
 
     printf("Codigo: ");
     scanf("%s", codigo2);
