@@ -100,9 +100,6 @@ int main(){
     case 6:
         printf("PIB Per Capita \n");
         break;
-    default:
-        printf("Opção Inválida!\n");
-        break;
     }
     // para exibir as comparações
     printf("\nComparando: %s (%s) VS %s (%s)\n", cidade, estado, cidade2, estado2);
@@ -118,7 +115,6 @@ int main(){
         else
             printf("Empate!\n");
         break;
-
     case 2: // Comparação de Área
         printf("%s: %.2f km²\n", cidade, area);
         printf("%s: %.2f km²\n", cidade2, area2);
@@ -129,7 +125,6 @@ int main(){
         else
             printf("Empate!\n");
         break;
-
     case 3: // Comparação de PIB Total
         printf("%s: R$ %.2f\n", cidade, PIB);
         printf("%s: R$ %.2f\n", cidade2, PIB2);
@@ -140,7 +135,6 @@ int main(){
         else
             printf("Empate!\n");
         break;
-
     case 4: // Comparação de Pontos Turísticos
         printf("%s: %d pontos turísticos\n", cidade, pontosTuristicos);
         printf("%s: %d pontos turísticos\n", cidade2, pontosTuristicos2);
@@ -151,7 +145,6 @@ int main(){
         else
             printf("Empate!\n");
         break;
-
     case 5: // Comparação de Densidade Demográfica
         printf("%s: %.2f hab/km²\n", cidade, densidade);
         printf("%s: %.2f hab/km²\n", cidade2, densidade2);
@@ -162,7 +155,6 @@ int main(){
         else
             printf("Empate!\n");
         break;
-
     case 6: // Comparação de PIB per Capita
         printf("%s: R$ %.2f\n", cidade, percapita);
         printf("%s: R$ %.2f\n", cidade2, percapita2);
@@ -173,10 +165,82 @@ int main(){
         else
             printf("Empate!\n");
         break;
-
         default:
             printf("## ERRO! ##\n");
     }
+
+    // Escolha dos atributos
+    int atributo1, atributo2;
+    float ataque1, ataque2, ataque3, ataque4;
+
+    printf("Agora escolha dois atributos diferentes para comparar:\n");
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. PIB Total\n");
+    printf("4. Pontos Turísticos\n");
+    printf("5. Densidade Demográfica (menor vence)\n");
+    printf("6. PIB Per Capita\n");
+    printf("Primeira opção: ");
+    scanf("%d", &atributo1);
+
+    printf("Segunda opção: (diferente da primeira): ");
+    scanf("%d", &atributo2);
+
+    switch (atributo1) {
+    case 1:
+        (ataque1 = populacao); (ataque2 = populacao2);
+        break;
+    case 2:
+        (ataque1 = area); (ataque2 = area2);
+        break;
+    case 3:
+        (ataque1 = PIB); (ataque2 = PIB2);
+        break;
+    case 4:
+        (ataque1 = pontosTuristicos); (ataque2 = pontosTuristicos2);
+        break;
+    case 5:
+        (ataque1 = densidade); (ataque2 = densidade2);
+        break;
+    case 6:
+        (ataque1 = percapita); (ataque2 = percapita2);
+        break;
+    }    
+
+    switch (atributo2) {
+    case 1:
+        (ataque3 = populacao); (ataque4 = populacao2);
+        break;
+    case 2:
+        (ataque3 = area); (ataque4 = area2);
+        break;
+    case 3:
+        (ataque3 = PIB); (ataque4 = PIB2);
+        break;
+    case 4:
+        (ataque3 = pontosTuristicos); (ataque4 = pontosTuristicos2);
+        break;
+    case 5:
+        (ataque3 = densidade); (ataque4 = densidade2);
+        break;
+    case 6:
+        (ataque3 = percapita); (ataque4 = percapita2);
+        break; 
+    }    
+
+    float soma1 = ataque1 + ataque2;
+    float soma2 = ataque3 + ataque4;
+
+    printf("\n=> COMPARAÇÃO COM DOIS ATRIBUTOS: ");
+    printf("\nComparando: %s (%s) VS %s (%s)\n", cidade, estado, cidade2, estado2);
+    printf("Soma dos atributos: %.2f vs %.2f\n", soma1, soma2);
+
+    if (soma1 > soma2)
+        printf("Resultado Final: %s Venceu!\n", cidade);
+    else if (soma2 > soma1)
+        printf("Resultado Final: %s Venceu!\n", cidade2);
+    else
+        printf("Resultado Final: Empate!\n");
 
     return 0;
 }
